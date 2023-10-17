@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -44,24 +43,26 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CuadranteEntero(modifier: Modifier = Modifier) {
     Column (
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
     ){
-        Row {
-            CuadranteUno()
-            CuadranteDos()
+        Row (
+            modifier = modifier.weight(1f)
+        ){
+            CuadranteUno(modifier.weight(1f).fillMaxHeight())
+            CuadranteDos( modifier.weight(1f).fillMaxHeight())
         }
-        Row {
-            CuadranteTres()
-            CuadranteCuatro()
+        Row (
+            modifier = modifier.weight(1f)
+        ){
+            CuadranteTres(modifier.weight(1f).fillMaxHeight())
+            CuadranteCuatro(modifier.weight(1f).fillMaxHeight())
         }
     }
 }
 @Composable
 fun CuadranteUno(modifier: Modifier = Modifier) {
     Column (
-        modifier = Modifier
-            .fillMaxWidth(0.5F)
-            .fillMaxHeight(0.5F)
+        modifier = modifier
             .background(Color(0xFFEADDFF))
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
@@ -83,9 +84,7 @@ fun CuadranteUno(modifier: Modifier = Modifier) {
 @Composable
 fun CuadranteDos(modifier: Modifier = Modifier) {
     Column (
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(0.5F)
+        modifier = modifier
             .background(Color(0xFFD0BCFF))
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
@@ -107,9 +106,7 @@ fun CuadranteDos(modifier: Modifier = Modifier) {
 @Composable
 fun CuadranteTres(modifier: Modifier = Modifier) {
     Column (
-        modifier = Modifier
-            .fillMaxWidth(0.5F)
-            .fillMaxHeight()
+        modifier = modifier
             .background(Color(0xFFB69DF8))
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
@@ -131,9 +128,7 @@ fun CuadranteTres(modifier: Modifier = Modifier) {
 @Composable
 fun CuadranteCuatro(modifier: Modifier = Modifier) {
     Column (
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
+        modifier = modifier
             .background(Color(0xFFF6EDFF))
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
