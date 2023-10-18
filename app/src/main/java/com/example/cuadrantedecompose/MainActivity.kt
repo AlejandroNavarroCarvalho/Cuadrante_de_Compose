@@ -48,99 +48,33 @@ fun CuadranteEntero(modifier: Modifier = Modifier) {
         Row (
             modifier = modifier.weight(1f)
         ){
-            CuadranteUno(modifier.weight(1f).fillMaxHeight())
-            CuadranteDos( modifier.weight(1f).fillMaxHeight())
+            Cuadrante("Text composable", "Displays text and follows the recommended Material Design guidelines.", 0xFFEADDFF ,modifier.weight(1f).fillMaxHeight())
+            Cuadrante( "Image composable", "Creates a composable that lays out and draws a given Painter class object.", 0xFFD0BCFF, modifier.weight(1f).fillMaxHeight())
         }
         Row (
             modifier = modifier.weight(1f)
         ){
-            CuadranteTres(modifier.weight(1f).fillMaxHeight())
-            CuadranteCuatro(modifier.weight(1f).fillMaxHeight())
+            Cuadrante("Row composable", "A layout composable that places its children in a horizontal sequence.", 0xFFB69DF8, modifier.weight(1f).fillMaxHeight())
+            Cuadrante("Column composable", "A layout composable that places its children in a vertical sequence.", 0xFFF6EDFF, modifier.weight(1f).fillMaxHeight())
         }
     }
 }
 @Composable
-fun CuadranteUno(modifier: Modifier = Modifier) {
+fun Cuadrante(title: String, definicion: String, color: Long, modifier: Modifier = Modifier) {
     Column (
         modifier = modifier
-            .background(Color(0xFFEADDFF))
+            .background(Color(color))
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
         Text(
-            text = "Text composable",
+            text = title,
             modifier = Modifier.padding(bottom = 16.dp),
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Displays text and follows the recommended Material Design guidelines.",
-            modifier = Modifier,
-            textAlign = TextAlign.Justify
-        )
-    }
-}
-
-@Composable
-fun CuadranteDos(modifier: Modifier = Modifier) {
-    Column (
-        modifier = modifier
-            .background(Color(0xFFD0BCFF))
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ){
-        Text(
-            text = "Image composable",
-            modifier = Modifier.padding(bottom = 16.dp),
-            fontWeight = FontWeight.Bold
-        )
-        Text(
-            text = "Creates a composable that lays out and draws a given Painter class object.",
-            modifier = Modifier,
-            textAlign = TextAlign.Justify
-        )
-    }
-}
-
-@Composable
-fun CuadranteTres(modifier: Modifier = Modifier) {
-    Column (
-        modifier = modifier
-            .background(Color(0xFFB69DF8))
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ){
-        Text(
-            text = "Row composable",
-            modifier = Modifier.padding(bottom = 16.dp),
-            fontWeight = FontWeight.Bold
-        )
-        Text(
-            text = "A layout composable that places its children in a horizontal sequence.",
-            modifier = Modifier,
-            textAlign = TextAlign.Justify
-        )
-    }
-}
-
-@Composable
-fun CuadranteCuatro(modifier: Modifier = Modifier) {
-    Column (
-        modifier = modifier
-            .background(Color(0xFFF6EDFF))
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ){
-        Text(
-            text = "Column composable",
-            modifier = Modifier.padding(bottom = 16.dp),
-            fontWeight = FontWeight.Bold
-        )
-        Text(
-            text = "A layout composable that places its children in a vertical sequence.",
+            text = definicion,
             modifier = Modifier,
             textAlign = TextAlign.Justify
         )
